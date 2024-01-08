@@ -20,6 +20,36 @@ public class Class1
 
         return array;
     }
+
+    public static int CountBeetween(double[] array, int N, double A, double B)
+    {
+        int countBetweenAandB = 0;
+        for (int i = 0; i < N; i++)
+        {
+            if (array[i] >= A && array[i] <= B)
+            {
+                countBetweenAandB++;
+            }
+        }
+
+        return countBetweenAandB;
+    }
+
+    public static int IndexOfMax(double[] array, int N)
+    {
+        double maxElement = array[0];
+        int maxElementIndex = 0;
+        for (int i = 0; i < N; i++)
+        {
+            if (array[i] > maxElement)
+            {
+                maxElement = array[i];
+                maxElementIndex = i;
+            }
+        }
+
+        return maxElementIndex;
+    }
     private static void FirstExercise()
     {
         int countBetweenAandB = 0;
@@ -38,25 +68,10 @@ public class Class1
 
         var A = Convert.ToDouble(Console.ReadLine());
         var B = Convert.ToDouble(Console.ReadLine());
-        
-        
 
-        maxElement = array[0];
-        maxElementIndex = 0;
-        for (int i = 0; i < N; i++)
-        {
-            if (array[i] >= A && array[i] <= B)
-            {
-                countBetweenAandB++;
-            }
 
-            if (array[i] > maxElement)
-            {
-                maxElement = array[i];
-                maxElementIndex = i;
-            }
-            
-        }
+        maxElementIndex = IndexOfMax(array, N);
+        countBetweenAandB = CountBeetween(array, N, A, B);
 
         for (int i = maxElementIndex + 1; i < N; i++)
         {
